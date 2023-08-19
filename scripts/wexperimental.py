@@ -46,6 +46,7 @@ class Script(scripts.Script):
     # args is [StableDiffusionProcessing, UI1, UI2, ...]
     def run(self, p, angle, checkbox):
         print('----------------custom extension run')
+        print(p)
         print(p.script_args)
         for script in p.scripts.scripts:
             print(script.title())
