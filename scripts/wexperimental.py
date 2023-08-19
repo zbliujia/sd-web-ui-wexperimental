@@ -25,26 +25,12 @@ class Script(scripts.Script):
     # Setup menu ui detail
     def ui(self, is_img2img):
         print('----------------custom extension ui')
-        with gr.Accordion('Extension Template', open=False):
-            with gr.Row():
-                angle = gr.Slider(
-                    minimum=0.0,
-                    maximum=360.0,
-                    step=1,
-                    value=0,
-                    label="Angle"
-                )
-                checkbox = gr.Checkbox(
-                    False,
-                    label="Checkbox"
-                )
-        # TODO: add more UI components (cf. https://gradio.app/docs/#components)
-        return [angle, checkbox]
+        return None
 
     # Extension main process
     # Type: (StableDiffusionProcessing, List<UI>) -> (Processed)
     # args is [StableDiffusionProcessing, UI1, UI2, ...]
-    def run(self, p, angle, checkbox):
+    def run(self, p, angle='', checkbox=''):
         print('----------------custom extension run')
         # TODO: get UI info through UI object angle, checkbox
         proc = process_images(p)
